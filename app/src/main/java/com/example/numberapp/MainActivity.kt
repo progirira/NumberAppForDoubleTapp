@@ -11,6 +11,7 @@ class MainActivity : ComponentActivity() {
     private var number: Int = -1
     private val tag: String = "MainActivityLifeCycle"
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.i(tag, "Started method 'onCreate()'")
         super.onCreate(savedInstanceState)
@@ -21,13 +22,12 @@ class MainActivity : ComponentActivity() {
 
         numberTextview.text = number.toString()
 
-        findViewById<Button>(R.id.next_activity_button)
-            .setOnClickListener {
-                Log.d("BUTTONS", "User tapped the next_activity button")
-                val sendIntent = Intent(this, SquareNumberActivity::class.java
-                ).apply { putExtra("STATE_NUMBER_TEXTVIEW", number.toFloat()) }
-                startActivity(sendIntent)
-            }
+        val next_activity_button: Button = findViewById(R.id.next_activity_button)
+        next_activity_button.setOnClickListener{
+            val intent = Intent(this, SquareNumberActivity::class.java)
+                .apply { putExtra("STATE_NUMBER_TEXTVIEW", number.toFloat()) }
+            startActivity(intent)
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -38,12 +38,12 @@ class MainActivity : ComponentActivity() {
     override fun onStart(){
         Log.i(tag, "Started method 'onStart()'")
         super.onStart()
+        number += 1
     }
 
     override fun onResume(){
         Log.i(tag, "Started method 'onResume()'")
         super.onResume()
-        number += 1
         val numberTextview: TextView = findViewById(R.id.number_textview)
         numberTextview.text = number.toString()
     }
