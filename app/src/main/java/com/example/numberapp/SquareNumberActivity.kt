@@ -9,37 +9,37 @@ import android.widget.TextView
 import androidx.activity.ComponentActivity
 
 class SquareNumberActivity : ComponentActivity() {
-    val TAG: String = "SquareNumberActivityLifeCycle"
+    private val tag: String = "SquareNumberActivityLifeCycle"
     override fun onCreate(savedInstanceState: Bundle?) {
-        Log.i(TAG, "Started method 'onCreate()'")
+        Log.i(tag, "Started method 'onCreate()'")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.square_number_activity)
-        val square_number: TextView = findViewById(R.id.square_number_textview)
-        square_number.text = this.intent.extras?.getFloat("STATE_TEXTVIEW")?.pow(2)?.toInt().toString()
+        val squareNumber: TextView = findViewById(R.id.square_number_textview)
+        squareNumber.text = this.intent.extras?.getFloat("STATE_TEXTVIEW")?.pow(2)?.toInt().toString()
     }
 
     override fun onStart(){
-        Log.i(TAG, "Started method 'onStart()'")
+        Log.i(tag, "Started method 'onStart()'")
         super.onStart()
     }
 
     override fun onResume(){
-        Log.i(TAG, "Started method 'onResume()'")
+        Log.i(tag, "Started method 'onResume()'")
         super.onResume()
 
     }
     override fun onStop(){
-        Log.i(TAG, "Started method 'onStop()'")
+        Log.i(tag, "Started method 'onStop()'")
         super.onStop()
     }
 
     override fun onDestroy() {
-        Log.i(TAG, "Started method 'onDestroy()'")
+        Log.i(tag, "Started method 'onDestroy()'")
         super.onDestroy()
     }
 
     override fun onRestart() {
-        Log.i(TAG, "Started method 'onRestart()'")
+        Log.i(tag, "Started method 'onRestart()'")
         super.onRestart()
     }
 
