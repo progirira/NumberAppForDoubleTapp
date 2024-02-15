@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.activity.ComponentActivity
 
 class MainActivity : ComponentActivity() {
-    var number: Int = 0
+    var number: Int = -1
     val TAG: String = "MainActivityLifeCycle"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,10 +34,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        number += 1
         Log.d(TAG, "Configuration changed, so number = $number")
-        var number_textview: TextView = findViewById(R.id.number_textview)
-        number_textview.text = number.toString()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -54,12 +51,16 @@ class MainActivity : ComponentActivity() {
     override fun onStart(){
         Log.i(TAG, "Started method 'onStart()'")
         super.onStart()
+        number += 1
     }
 
     override fun onResume(){
         Log.i(TAG, "Started method 'onResume()'")
         super.onResume()
-
+//        var number_textview: TextView = findViewById(R.id.number_textview)
+//        number_textview.text = number.toString()
+        var number_textview: TextView = findViewById(R.id.number_textview)
+        number_textview.text = number.toString()
     }
     override fun onStop(){
         Log.i(TAG, "Started method 'onStop()'")
