@@ -15,7 +15,7 @@ class SquareNumberActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.square_number_activity)
         val squareNumber: TextView = findViewById(R.id.square_number_textview)
-        squareNumber.text = this.intent.extras?.getFloat("STATE_TEXTVIEW")?.pow(2)?.toInt().toString()
+        squareNumber.text = this.intent.extras?.getFloat("STATE_NUMBER_TEXTVIEW")?.pow(2)?.toInt().toString()
     }
 
     override fun onStart(){
